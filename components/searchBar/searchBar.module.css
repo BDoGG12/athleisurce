@@ -1,0 +1,21 @@
+/* SearchBar.module.css */
+.searchBar {
+  margin-top: 1rem;
+}
+
+.searchBar input {
+  padding: 0.5rem;
+  width: 200px;
+}
+
+.searchBar button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.searchBar button:hover {
+  background-color: #555;
+}
