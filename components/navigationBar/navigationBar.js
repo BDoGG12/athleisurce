@@ -1,53 +1,19 @@
 // NavigationBar.js
 import Link from 'next/link';
 import classes from './navigationBar.module.css';
+import { Nav, Navbar, Button, Form } from 'react-bootstrap';
 
-const NavigationBar = ({user}) => {
+const NavigationBar = ({  }) => {
   return (
-    <nav className={classes.navbar}>
-      <ul className={classes.navList}>
-        <li>
-          <Link href="/">
-            Athleisurce
-          </Link>
-        </li>
-        <li>
-          <Link href="/shop">
-            Shop
-          </Link>
-        </li>
-        <li>
-          <Link href="/cart">
-            Cart
-          </Link>
-        </li>
-        {user ? (
-          <>
-            <li>
-              <Link href="/account">
-                Account
-              </Link>
-            </li>
-            <li>
-              <button>Logout</button>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link href="/login">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link href="/signup">
-                Signup
-              </Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+    <>
+    <Navbar bg='dark' data-bs-theme='dark'>
+      <Navbar.Brand href='/'>Athleisurce</Navbar.Brand>
+      <Form className={classes.customSearchForm}>
+        <Form.Control className={classes.formControl} />
+        <Button>Search</Button>
+      </Form>
+    </Navbar>
+    </>
   );
 };
 

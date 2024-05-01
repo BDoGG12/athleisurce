@@ -23,3 +23,17 @@
 .navList li a:hover {
   color: #ccc;
 }
+
+.logo {
+  margin-right: auto;
+}
+
+/* Custom CSS */
+.customSearchForm {
+  display: flex;
+  align-items: center;
+}
+
+.customSearchForm .formControl {
+  margin-right: 15px; /* Adjust spacing between form control and button */
+}
