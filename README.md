@@ -1,40 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Athleisurce Web Application
 
-## Getting Started
+Welcome to our e-commerce web application! This project aims to provide users with a seamless shopping experience, powered by modern technologies and a user-friendly interface.
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+To run this project locally, follow these steps:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository to your local machine.
+2. Install dependencies by running `npm install` in the `frontend` directory for the Next.js frontend and `dotnet restore` in the `backend` directory for the C# backend.
+3. Configure your MongoDB database and update the connection string in the backend.
+4. Set up your Contentful space and configure the integration in the backend.
+5. Run the frontend and backend servers using `npm run dev` in the `frontend` directory and `dotnet run` in the `backend` directory.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## User Requirements
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Users should be able to browse products by category.
+- Users should be able to add products to their cart and checkout securely.
+- Admins should be able to manage products, categories, and orders through an intuitive interface.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Architecture Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Frontend**: Next.js is used for server-side rendering and client-side routing. We leverage React components and stylesheets for building the user interface.
+- **Backend**: C# is utilized for the backend logic, providing RESTful APIs for communication with the frontend. We use ASP.NET Core for building robust and scalable backend services.
+- **Database**: MongoDB is chosen as the database solution for its flexibility and scalability. We've designed a schema to efficiently store product, category, and order data.
 
-## Learn More
+## Contentful Integration
 
-To learn more about Next.js, take a look at the following resources:
+We've integrated Contentful as a headless CMS to manage content such as product descriptions and images. Contentful provides a user-friendly interface for editors to update content dynamically without needing to touch the codebase.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Once the application is set up, you can access it through the provided URL. Users can browse products, add them to their cart, and complete the checkout process. Admins can log in to the admin panel to manage products, categories, and orders.
 
-## Deploy on Vercel
+## Testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We've included unit tests for both the frontend and backend to ensure the reliability and stability of the application. You can run tests using the provided testing frameworks and scripts.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deployment
+
+To deploy the application to a production environment, follow the deployment instructions provided in the respective directories. Ensure that all configurations are set up correctly for a smooth deployment process.
+
+## Contributing
+
+We welcome contributions from the community! If you'd like to contribute to the project, please follow our guidelines outlined in the CONTRIBUTING.md file.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Credits
+
+- Frontend developed by Benjamin Do
+- Backend developed by Benjamin Do
+- Contentful integration by Benjamin Do
+
+## Contact Information
+
+If you have any questions or feedback, feel free to reach out to us at bdo.appworkshop@gmail.com.
