@@ -1,0 +1,39 @@
+/* components/ProductList.css */
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.productImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.productDetails {
+  margin-top: 10px;
+}
+
+.productTitle {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.productDescription {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.productPrice {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
