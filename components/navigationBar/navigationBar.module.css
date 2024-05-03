@@ -4,6 +4,10 @@
   padding: 1rem;
 }
 
+.titleLogo {
+  margin-right: 230px;
+}
+
 .navList {
   list-style-type: none;
   margin: 0;
