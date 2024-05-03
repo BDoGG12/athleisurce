@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import classes from './navigationBar.module.css';
 import { Nav, Navbar, NavDropdown, Button, Form, Container } from 'react-bootstrap';
+import {FaShoppingCart} from 'react-icons/fa';
 
 const NavigationBar = ({  }) => {
   return (
@@ -30,6 +31,12 @@ const NavigationBar = ({  }) => {
             />
             <Button variant="outline-primary">Search</Button>
           </Form>
+          <Nav>
+            {/* Cart Icon */}
+            <Nav.Link href='/cart'>
+              <FaShoppingCart size={20} />
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
