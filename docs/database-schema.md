@@ -31,3 +31,14 @@
 - **status**: String (e.g., "pending", "shipped", "delivered")
 - **createdAt**: Date
 - **updatedAt**: Date
+
+## Cart Collection
+
+- **_id**: ObjectId
+- **userId**: ObjectId (reference to User)
+- **items**: Array of Objects
+  - **productId**: ObjectId (reference to Product)
+  - **quantity**: Number
+- **totalPrice**: Number
+- **createdAt**: Date
+- **updatedAt**: Date
