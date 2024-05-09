@@ -1,14 +1,36 @@
 // NavigationBar.js
 import Link from 'next/link';
+import {useRouter} from 'next/router';
 import classes from './navigationBar.module.css';
 import { Nav, Navbar, NavDropdown, Button, Form, Container } from 'react-bootstrap';
 import { FaShoppingCart, FaSearch } from 'react-icons/fa';
 import {createClient} from 'contentful';
+import {useClothesContext} from '../../context/clothes-context';
+import {useState, useRef} from 'react';
+
+const client = createClient({
+  space: 'p843ovnyw7tf',
+  accessToken: 'L-nXGukJbr9-8cXH318T_7Ibn4-qm2sZIhmnXOdIvkU'
+});
 
 const NavigationBar = ({ }) => {
-  const onPress = () => {
-    console.log('This event is not yet implemented');
-  }
+  const router = useRouter();
+  const query = useRef();
+  const {setSearchResults} = useClothesContext();
+
+  const onPress = async () => {
+    try {
+      const { items } = await client.getEntries({
+        content_type: 'clothes',
+        query: query.current.value
+      });
+      setSearchResults(items);
+      router.push(`/search-results/${query.current.value}`)
+    } catch (error) {
+      console.error('Error searching Contentful:', error);
+    }
+  };
+
   return (
     <>
       <Navbar bg='light' data-bs-theme="light">
@@ -20,6 +42,7 @@ const NavigationBar = ({ }) => {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              ref={query}
             />
             <Button onClick={onPress} variant='outline-primary'>
               <FaSearch />
