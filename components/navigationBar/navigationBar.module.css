@@ -9,23 +9,7 @@
 }
 
 .navList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navList li {
-  display: inline;
-  margin-right: 1rem;
-}
-
-.navList li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.navList li a:hover {
-  color: #ccc;
+  color: white;
 }
 
 .logo {
