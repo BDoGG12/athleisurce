@@ -13,7 +13,7 @@ const NavigationBar = ({ }) => {
     <>
       <Navbar bg='light' data-bs-theme="light">
         <Container>
-          <Navbar.Brand href="#">Athleisurce</Navbar.Brand>
+          <Navbar.Brand href="/">Athleisurce</Navbar.Brand>
           <Form className="d-flex">
             <Form.Control
               type="search"
