@@ -1,10 +1,16 @@
-
+import { useClothesContext } from '../../context/clothes-context';
+import ProductList from '../../components/product-list/product-list';
 
 const SearchResultsPage = () => {
 
-  return (
+  const { searchResults } = useClothesContext();
 
+  return (
+    <div>
+      <h1>Search Results</h1>
+      <ProductList products={searchResults} />
+    </div>
   )
 };
 
-export default SearchResults;
+export default SearchResultsPage;
