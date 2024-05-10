@@ -6,7 +6,7 @@ import { Nav, Navbar, NavDropdown, Button, Form, Container } from 'react-bootstr
 import { FaShoppingCart, FaSearch } from 'react-icons/fa';
 import {createClient} from 'contentful';
 import {useClothesContext} from '../../context/clothes-context';
-import {useState, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 
 const client = createClient({
   space: 'p843ovnyw7tf',
