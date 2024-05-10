@@ -1,10 +1,10 @@
-
+import Login from '../../components/logIn/logIn';
 
 const LoginPage = () => {
 
   return (
     <>
-    <h1>Log In Page</h1>
+    <Login />
     </>
   );
 };
