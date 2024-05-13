@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import classes from './signUp.module.css';
+import {useRouter} from 'next/router';
+
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +10,8 @@ const SignUp = () => {
     password: '',
     confirmPassword: '',
   });
+
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,6 +22,7 @@ const SignUp = () => {
     e.preventDefault();
     // Here you can add your sign up logic
     console.log('Form submitted with data:', formData);
+    router.push('/complete-profile')
   };
 
   return (
@@ -28,6 +34,7 @@ const SignUp = () => {
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
+                className={classes.inputMargin}
                 type="email"
                 placeholder="Enter email"
                 name="email"
@@ -40,6 +47,7 @@ const SignUp = () => {
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
+                className={classes.inputMargin}
                 type="password"
                 placeholder="Password"
                 name="password"
@@ -52,6 +60,7 @@ const SignUp = () => {
             <Form.Group controlId="formBasicConfirmPassword">
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
+                className={classes.inputMargin}
                 type="password"
                 placeholder="Confirm Password"
                 name="confirmPassword"
