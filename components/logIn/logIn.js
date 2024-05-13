@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import classes from './login.module.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -27,6 +28,7 @@ const Login = () => {
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
+                className={classes.inputMargin}
                 type="email"
                 placeholder="Enter email"
                 name="email"
@@ -39,6 +41,7 @@ const Login = () => {
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
+                className={classes.inputMargin}
                 type="password"
                 placeholder="Password"
                 name="password"
