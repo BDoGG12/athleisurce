@@ -1,5 +1,6 @@
 import { useClothesContext } from '../../context/clothes-context';
 import ProductList from '../../components/product-list/product-list';
+import React from 'react';
 
 const SearchResultsPage = () => {
 

@@ -1,6 +1,6 @@
 import {useRouter} from 'next/router';
 import {createClient} from 'contentful';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import ProductList from '../../components/product-list/product-list';
 
 const client = createClient({

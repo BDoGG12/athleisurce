@@ -2,7 +2,7 @@ import {useRouter} from 'next/router';
 import {createClient} from 'contentful';
 import {useState} from 'react';
 import ProductList from '../../components/product-list/product-list';
-
+import React from 'react';
 const client = createClient({
   space: 'p843ovnyw7tf',
   accessToken: 'L-nXGukJbr9-8cXH318T_7Ibn4-qm2sZIhmnXOdIvkU'
