@@ -4,8 +4,8 @@ import {useState} from 'react';
 import ProductList from '../../components/product-list/product-list';
 import React from 'react';
 const client = createClient({
-  space: 'p843ovnyw7tf',
-  accessToken: 'L-nXGukJbr9-8cXH318T_7Ibn4-qm2sZIhmnXOdIvkU'
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
 });
 
 const PantsPage = ({products}) => {
@@ -23,7 +23,7 @@ const PantsPage = ({products}) => {
 
 export async function getStaticProps() {
   const { items } = await client.getEntries({ content_type: 'clothes' });
-  const filteredItems = items.filter(item => item.fields.category === 'pants')
+  const filteredItems = items.filter(item => item.fields.category === 'pants');
 
   return {
     props: {
