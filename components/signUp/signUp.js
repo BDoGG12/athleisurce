@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import classes from './signUp.module.css';
 import {useRouter} from 'next/router';
-
+import axios from 'axios';
+import {useClothesContext} from '../../context/clothes-context';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -11,11 +12,14 @@ const SignUp = () => {
     confirmPassword: '',
   });
 
+  const {setSignUpUser} = useClothesContext();
+
   const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setSignUpUser({...formData, [name]: value})
   };
 
   const handleSubmit = (e) => {
