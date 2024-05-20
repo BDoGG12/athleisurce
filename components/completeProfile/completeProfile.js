@@ -1,21 +1,37 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import classes from './CompleteProfile.module.css'; // Import the CSS file
+import axios from 'axios';
+import { useClothesContext } from '../../context/clothes-context';
+import { useRouter } from 'next/router';
 
 const CompleteProfile = () => {
   const [formData, setFormData] = useState({
+    id: '',
     firstName: '',
     lastName: '',
-    dob: '',
     address: '',
     city: '',
     state: '',
+    country: '',
     postalCode: '',
     phoneNumber: ''
   });
 
+  const [id, setId] = useState('');
+
+  const generateRandomId = (length) => {
+    const timestamp = Date.now().toString(36); // Convert timestamp to base 36
+    const randomSegment = Array.from({ length }, () => Math.floor(Math.random() * 36).toString(36)).join('');
+    return timestamp + randomSegment;
+  };
+
+  const { email, password } = useClothesContext();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const idNum = generateRandomId(6)
+    setId(idNum);
     setFormData({
       ...formData,
       [name]: value
@@ -26,6 +42,29 @@ const CompleteProfile = () => {
     e.preventDefault();
     // Here you can send formData to your backend or do something else with it
     console.log(formData);
+    const { id, firstName, lastName, address, city, state, phoneNumber, postalCode, country } = formData;
+    const addressData = {
+      streetName: address,
+      city: city,
+      state: state,
+      postalCode: postalCode,
+      country: country
+    };
+    const req_body = {
+      id: id,
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: email,
+      phoneNumber: phoneNumber,
+      address: addressData,
+    }
+    axios.post(`https://localhost:10221/api/RegisterCustomer`, JSON.stringify(req_body))
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log('error', error);
+      })
   };
 
   return (
@@ -34,35 +73,35 @@ const CompleteProfile = () => {
         <Col md={6}>
           <h2>Complete Your Profile</h2>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className={classes.formGroup}  controlId="firstName">
+            <Form.Group className={classes.formGroup} controlId="firstName">
               <Form.Label>First Name</Form.Label>
               <Form.Control type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
             </Form.Group>
-            <Form.Group className={classes.formGroup}  controlId="lastName">
+            <Form.Group className={classes.formGroup} controlId="lastName">
               <Form.Label>Last Name</Form.Label>
               <Form.Control type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
             </Form.Group>
-            <Form.Group className={classes.formGroup}  controlId="dob">
-              <Form.Label>Date of Birth</Form.Label>
-              <Form.Control type="date" name="dob" value={formData.dob} onChange={handleChange} />
-            </Form.Group>
-            <Form.Group className={classes.formGroup}  controlId="address">
+            <Form.Group className={classes.formGroup} controlId="address">
               <Form.Label>Address</Form.Label>
               <Form.Control type="text" name="address" value={formData.address} onChange={handleChange} />
             </Form.Group>
-            <Form.Group className={classes.formGroup}  controlId="city">
+            <Form.Group className={classes.formGroup} controlId="city">
               <Form.Label>City</Form.Label>
               <Form.Control type="text" name="city" value={formData.city} onChange={handleChange} />
             </Form.Group>
-            <Form.Group className={classes.formGroup}  controlId="state">
+            <Form.Group className={classes.formGroup} controlId="state">
               <Form.Label>State</Form.Label>
               <Form.Control type="text" name="state" value={formData.state} onChange={handleChange} />
             </Form.Group>
-            <Form.Group className={classes.formGroup}  controlId="postalCode">
+            <Form.Group className={classes.formGroup} controlId="postalCode">
               <Form.Label>Postal Code</Form.Label>
               <Form.Control type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} />
             </Form.Group>
-            <Form.Group className={classes.formGroup}  controlId="phoneNumber">
+            <Form.Group className={classes.formGroup} controlId="country">
+              <Form.Label>Country</Form.Label>
+              <Form.Control type="text" name="country" value={formData.country} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group className={classes.formGroup} controlId="phoneNumber">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
             </Form.Group>
