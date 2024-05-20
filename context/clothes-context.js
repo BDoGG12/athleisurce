@@ -12,8 +12,10 @@ export const ClothesProvider = ({children}) => {
 
   const [searchResults, setSearchResults] = useState([]);
 
+  const [signUpUser, setSignUpUser] = useState({});
+
   return (
-    <ClothesContext.Provider value={{shirts, setShirts, pants, setPants, productDetail, setProductDetail, searchResults, setSearchResults}}>
+    <ClothesContext.Provider value={{shirts, setShirts, pants, setPants, productDetail, setProductDetail, searchResults, setSearchResults, signUpUser, setSignUpUser}}>
       {children}
     </ClothesContext.Provider>
   );
