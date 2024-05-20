@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 
 const CompleteProfile = () => {
   const [formData, setFormData] = useState({
-    id: '',
     firstName: '',
     lastName: '',
     address: '',
@@ -42,7 +41,7 @@ const CompleteProfile = () => {
     e.preventDefault();
     // Here you can send formData to your backend or do something else with it
     console.log(formData);
-    const { id, firstName, lastName, address, city, state, phoneNumber, postalCode, country } = formData;
+    const { firstName, lastName, address, city, state, phoneNumber, postalCode, country } = formData;
     const addressData = {
       streetName: address,
       city: city,
@@ -56,9 +55,11 @@ const CompleteProfile = () => {
       lastName: lastName,
       emailAddress: email,
       phoneNumber: phoneNumber,
+      password: password,
       address: addressData,
     }
-    axios.post(`https://localhost:10221/api/RegisterCustomer`, JSON.stringify(req_body))
+    console.log('body', req_body);
+    axios.post(`https://192.168.1.199:5000/api/RegisterCustomer`, req_body)
       .then((res) => {
         console.log(res);
       })
