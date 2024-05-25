@@ -17,30 +17,22 @@ const CompleteProfile = () => {
     phoneNumber: ''
   });
 
-  const [id, setId] = useState('');
-
-  const generateRandomId = (length) => {
-    const timestamp = Date.now().toString(36); // Convert timestamp to base 36
-    const randomSegment = Array.from({ length }, () => Math.floor(Math.random() * 36).toString(36)).join('');
-    return timestamp + randomSegment;
-  };
-
-  const { email, password } = useClothesContext();
+  const router = useRouter();
+  const {signUpUser} = useClothesContext();
+  const {email, password} = signUpUser;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const idNum = generateRandomId(6)
-    setId(idNum);
     setFormData({
       ...formData,
       [name]: value
     });
+    console.log('context', signUpUser)
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you can send formData to your backend or do something else with it
-    console.log(formData);
     const { firstName, lastName, address, city, state, phoneNumber, postalCode, country } = formData;
     const addressData = {
       streetName: address,
@@ -50,18 +42,17 @@ const CompleteProfile = () => {
       country: country
     };
     const req_body = {
-      id: id,
       firstName: firstName,
       lastName: lastName,
       emailAddress: email,
       phoneNumber: phoneNumber,
       password: password,
-      address: addressData,
+      address: addressData
     }
-    console.log('body', req_body);
-    axios.post(`https://192.168.1.199:5000/api/RegisterCustomer`, req_body)
+    axios.post(`https://localhost:44375/api/RegisterCustomer`, req_body)
       .then((res) => {
         console.log(res);
+        router.push('/');
       })
       .catch((error) => {
         console.log('error', error);
