@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import classes from './login.module.css';
+import {signIn} from 'next-auth/react';
+import { useRouter } from "next/router";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -8,15 +10,27 @@ const Login = () => {
     password: '',
   });
 
+  const router = useRouter();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Here you can add your login logic
     console.log('Form submitted with data:', formData);
+    const {email, password} = formData;
+
+    const result = await signIn('credentials', {
+      redirect: false,
+      email: email,
+      password: password
+    });
+    console.log('result', result)
+
+    router.push('/');
   };
 
   return (
