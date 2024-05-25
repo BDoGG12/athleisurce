@@ -25,3 +25,19 @@
 .customSearchForm .formControl {
   margin-right: 15px; /* Adjust spacing between form control and button */
 }
+
+.customButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+.customButton:hover,
+.customButton:focus {
+  background-color: transparent;
+  color: inherit;
+  box-shadow: none;
+  outline: none;
+}
