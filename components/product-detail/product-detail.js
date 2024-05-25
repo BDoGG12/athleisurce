@@ -26,7 +26,7 @@ const ProductDetail = ({ title, description, price, url }) => {
       console.log(e);
     });
     
-  }, [logInUser]);
+  }, []);
 
   const addToCartHandler = () => {
     const productInfo = {
@@ -40,20 +40,7 @@ const ProductDetail = ({ title, description, price, url }) => {
     console.log('user info', userInfo);
     axios.post(`https://localhost:44375/api/Cart`, {
       quantity: 1,
-      customerInfo: {
-        firstName: names[0],
-        lastName: names[1],
-        emailAddress: 'email@test.com',
-        phoneNumber: '1234567890',
-        password: 'testing',
-        address: {
-          streetName: 'street',
-          city: 'city',
-          state: 'state',
-          postalCode: '60061',
-          country: 'US'
-        }
-      },
+      customerInfo: userInfo,
       productInfo: productInfo
     })
     .then((res) => {
