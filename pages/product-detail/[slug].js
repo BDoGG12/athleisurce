@@ -11,13 +11,13 @@ const client = createClient({
 
 const ProductDetailPage = ({ product }) => {
   console.log('product detail', product);
-  const { name, description, price, images } = product.fields;
+  const { name, description, price, images, category } = product.fields;
   const { fields } = images[0];
   const { file } = fields;
   const { url } = file;
 
   return (
-    <ProductDetail name={name} description={description} price={price} url={url}  />
+    <ProductDetail category={category} title={name} description={description} price={price} url={url}  />
   );
 };
 
