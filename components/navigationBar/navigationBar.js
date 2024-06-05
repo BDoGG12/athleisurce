@@ -91,7 +91,13 @@ const NavigationBar = ({}) => {
       <Navbar bg="light" data-bs-theme="light">
         <Container>
           <Navbar.Brand href="/">
-          <Button onClick={clickHandler} className={classes.customButton} title='/'>Athleisurce</Button>
+            <Button
+              onClick={clickHandler}
+              className={classes.customButton}
+              title="/"
+            >
+              Athleisurce
+            </Button>
           </Navbar.Brand>
           <Form className="d-flex">
             <Form.Control
@@ -106,26 +112,84 @@ const NavigationBar = ({}) => {
             </Button>
           </Form>
           <Nav.Link href="/shirts">
-            <Button onClick={clickHandler} className={classes.customButton} title='/shirts'>Shirts</Button>
+            <Button
+              onClick={clickHandler}
+              className={classes.customButton}
+              title="/shirts"
+            >
+              Shirts
+            </Button>
           </Nav.Link>
           <Nav.Link href="/pants">
-            <Button onClick={clickHandler} className={classes.customButton} title='/pants'>Pants</Button>
+            <Button
+              onClick={clickHandler}
+              className={classes.customButton}
+              title="/pants"
+            >
+              Pants
+            </Button>
           </Nav.Link>
           <Nav>
             {/* Cart Icon */}
             <Nav.Link href="/cart">
-                <FaShoppingCart size={20} />
+              <Button
+                onClick={clickHandler}
+                className={classes.customButton}
+                title="/cart"
+              >
+                Cart
+              </Button>
             </Nav.Link>
           </Nav>
-          {!session && <Nav.Link href="/sign-up">Sign Up</Nav.Link>}
-          {!session && <Nav.Link href="/log-in">Log In</Nav.Link>}
+          {!session && (
+            <Nav.Link href="/sign-up">
+              <Button
+                onClick={clickHandler}
+                className={classes.customButton}
+                title="/sign-up"
+              >
+                Sign Up
+              </Button>
+            </Nav.Link>
+          )}
+          {!session && (
+            <Nav.Link href="/log-in">
+              <Button
+                onClick={clickHandler}
+                className={classes.customButton}
+                title="/log-in"
+              >
+                Log In
+              </Button>
+            </Nav.Link>
+          )}
           {session && (
             <NavDropdown title={navProfileName}>
-              <NavDropdown.Item href={`/profile/${modifiedName}`}>
-                Profile
+              <NavDropdown.Item href={`/profile}`}>
+              <Button
+                  onClick={clickHandler}
+                  className={classes.customNavDropdown}
+                  title={`/profile}`}
+                >
+                  Profile
+                </Button>
+              </NavDropdown.Item>
+              <NavDropdown.Item href={`/order/${guid}`}>
+                <Button
+                  onClick={clickHandler}
+                  className={classes.customNavDropdown}
+                  title={`/order/${guid}`}
+                >
+                  Your Orders
+                </Button>
               </NavDropdown.Item>
               <NavDropdown.Item onClick={logoutHandler}>
-                Sign Out
+              <Button
+                  onClick={logoutHandler}
+                  className={classes.customNavDropdown}
+                >
+                  Sign Out
+                </Button>
               </NavDropdown.Item>
             </NavDropdown>
           )}

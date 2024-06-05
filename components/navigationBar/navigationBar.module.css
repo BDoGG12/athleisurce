@@ -41,3 +41,12 @@
   box-shadow: none;
   outline: none;
 }
+
+.customNavDropdown {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  margin-left: 0;
+}
