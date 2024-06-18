@@ -1,0 +1,77 @@
+/* components/Cart.module.css */
+.cartList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cartItem {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .itemImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .itemDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .itemName {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: auto;
+  }
+
+  .itemQuantity {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .quantityInput {
+    width: 50px;
+    margin-left: 10px;
+  }
+
+  .itemPrice {
+    margin-left: 10px;
+  }
+  
+  .itemQuantity,
+  .itemPrice {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .subtotal {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 80px;
+  }
+
+  
+.removeButton {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-left: 15px;
+    align-self: flex-start;
+  }
+
+.placeOrderBtn {
+    justify-content: flex-end;
+    display: flex;
+    margin-top: 10px;
+    float: right;
+}

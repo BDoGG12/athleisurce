@@ -9,23 +9,7 @@
 }
 
 .navList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navList li {
-  display: inline;
-  margin-right: 1rem;
-}
-
-.navList li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.navList li a:hover {
-  color: #ccc;
+  color: white;
 }
 
 .logo {
@@ -40,4 +24,29 @@
 
 .customSearchForm .formControl {
   margin-right: 15px; /* Adjust spacing between form control and button */
+}
+
+.customButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+.customButton:hover,
+.customButton:focus {
+  background-color: transparent;
+  color: inherit;
+  box-shadow: none;
+  outline: none;
+}
+
+.customNavDropdown {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  margin-left: 0;
 }

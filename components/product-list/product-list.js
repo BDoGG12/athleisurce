@@ -1,17 +1,23 @@
 // components/ProductList.js
 import classes from './product-list.module.css';
 import React from 'react';
+import { Card } from 'react-bootstrap';
+import Link from 'next/link';
 
 const ProductList = ({ products }) => {
   return (
-    <div className={classes.ProductList}>
+    <div className={classes.productList}>
       {products.map(product => (
-        <div key={product.id} className={classes.product}>
-          <img src={product.image} alt={product.title} className={} />
-          <h3>{product.title}</h3>
-          <p>{product.description}</p>
-          <p>Price: ${product.price}</p>
-          {/* Add to cart button can go here */}
+        <div key={product.sys.id}>
+          <Link href={`/product-detail/${product.fields.name}`}>
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant='top' src={product.fields.images[0].fields.file.url} />
+              <Card.Body>
+                <Card.Title>{product.fields.name}</Card.Title>
+                <Card.Text>{product.fields.price}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Link>
         </div>
       ))}
     </div>
