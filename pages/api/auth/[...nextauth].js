@@ -29,13 +29,14 @@ export default NextAuth({
           .collection("Athleisurce_Customers");
 
         const customer = await customerCollection.findOne({
-          EmailAddress: credentials.email,
-          Password: credentials.password,
+          emailAddress: credentials.email,
+          password: credentials.password,
         });
+        console.log(customer);
 
-        const { _id, FirstName, LastName } = customer;
+        const { _id.toString(), FirstName, LastName } = customer;
 
-        if (customer && credentials.password === customer.Password) {
+        if (customer && credentials.password === customer.password) {
           const user = { email: _id, name: `${FirstName} ${LastName}` };
           client.close();
           return user;
