@@ -49,7 +49,7 @@ const CompleteProfile = () => {
       password: password,
       address: addressData
     }
-    axios.post(`https://localhost:44375/api/RegisterCustomer`, req_body)
+    axios.post(`/api/RegisterCustomer`, req_body)
       .then((res) => {
         console.log(res);
         router.push('/');
