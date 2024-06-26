@@ -2,6 +2,7 @@ import { useClothesContext } from '../../context/clothes-context';
 import ProductList from '../../components/product-list/product-list';
 import React from 'react';
 import {useRouter} from 'next/router';
+import Head from 'next/head';
 
 const SearchResultsPage = () => {
 
