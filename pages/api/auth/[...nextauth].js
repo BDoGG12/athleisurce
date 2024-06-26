@@ -34,10 +34,10 @@ export default NextAuth({
         });
         console.log(customer);
 
-        const { _id.toString(), FirstName, LastName } = customer;
+        const { _id, firstName, lastName } = customer;
 
         if (customer && credentials.password === customer.password) {
-          const user = { email: _id, name: `${FirstName} ${LastName}` };
+          const user = { email: _id.toString(), name: `${firstName} ${lastName}` };
           client.close();
           return user;
         } else {
