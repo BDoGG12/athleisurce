@@ -21,7 +21,7 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const NavigationBar = ({}) => {
+const NavigationBar = ({ }) => {
   const router = useRouter();
   const query = useRef();
   const { setSearchResults, setLogInUser, setSessions } = useClothesContext();
@@ -41,9 +41,9 @@ const NavigationBar = ({}) => {
     // Format the hex string as GUID (32 digits with 4 dashes)
     guid = [
       hexString.substring(6, 8) +
-        hexString.substring(4, 6) +
-        hexString.substring(2, 4) +
-        hexString.substring(0, 2),
+      hexString.substring(4, 6) +
+      hexString.substring(2, 4) +
+      hexString.substring(0, 2),
       hexString.substring(10, 12) + hexString.substring(8, 10),
       hexString.substring(14, 16) + hexString.substring(12, 14),
       hexString.substring(16, 20),
@@ -59,6 +59,13 @@ const NavigationBar = ({}) => {
 
   const logoutHandler = () => {
     signOut();
+  };
+
+  const handleKeyDown =  (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      onPress(e);
+    }
   };
 
   const clickHandler = (e) => {
@@ -106,6 +113,7 @@ const NavigationBar = ({}) => {
               className="me-2"
               aria-label="Search"
               ref={query}
+              onKeyDown={handleKeyDown}
             />
             <Button onClick={onPress} variant="outline-primary">
               <FaSearch />
@@ -166,7 +174,7 @@ const NavigationBar = ({}) => {
           {session && (
             <NavDropdown title={navProfileName}>
               <NavDropdown.Item href={`/profile}`}>
-              <Button
+                <Button
                   onClick={clickHandler}
                   className={classes.customNavDropdown}
                   title={`/profile}`}
@@ -184,7 +192,7 @@ const NavigationBar = ({}) => {
                 </Button>
               </NavDropdown.Item>
               <NavDropdown.Item onClick={logoutHandler}>
-              <Button
+                <Button
                   onClick={logoutHandler}
                   className={classes.customNavDropdown}
                 >
